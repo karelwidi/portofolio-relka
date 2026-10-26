@@ -11,7 +11,8 @@ import {
   Smartphone,
   MapPin,    
   Phone,    
-  Send
+  Send,
+  FileText
 } from 'lucide-react';
 
 // ==========================================
@@ -358,7 +359,17 @@ export default function Portfolio() {
               <a href="#contact" className="px-6 py-2.5 rounded-lg font-medium border border-white/10 hover:bg-white/5 transition-colors flex items-center gap-2">
                 <Mail className="w-4 h-4" /> Kontak
               </a>
+              <a 
+                href="https://drive.google.com/file/d/1uJYMLOnOR6-L8RcfSe49NwGkk31sUmdZ/view?usp=drive_link" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="border border-white/10 hover:border-white/30 bg-zinc-900/50 hover:bg-zinc-800 text-white px-6 py-3.5 rounded-xl font-medium transition-all flex items-center gap-2 group"
+              >
+                <FileText className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                Lihat CV
+              </a>
             </div>
+            
           </div>
           
           {/* FLOATING 3D BADGES (HERO RIGHT) */}
