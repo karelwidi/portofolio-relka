@@ -289,53 +289,55 @@ export default function Portfolio() {
       <NetworkCanvas />
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-zinc-950/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-mono text-zinc-100 font-bold tracking-tighter text-lg">
-            Karel<span className="text-zinc-500">.Portofolio</span>
-          </div>
+     <nav className="fixed top-0 left-0 right-0 z-40 bg-zinc-950/85 backdrop-blur-md border-b border-white/5">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <div className="font-mono text-zinc-100 font-bold tracking-tighter text-base sm:text-lg whitespace-nowrap">
+      Karel<span className="text-zinc-500">.Portofolio</span>
+    </div>
 
-          <div className="flex items-center gap-5 sm:gap-6">
-            <div className="flex gap-4 sm:gap-6 text-sm font-medium">
-              <a href="#about" className="hover:text-white transition-colors">About</a>
-              <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
-              <a href="#resume" className="hover:text-white transition-colors">Resume</a>
-              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-            </div>
+    <div className="flex items-center gap-3 sm:gap-6">
+      <div className="flex gap-2.5 sm:gap-6 text-xs sm:text-sm font-medium whitespace-nowrap text-zinc-300">
+        <a href="#about" className="hover:text-white transition-colors">About</a>
+        <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
+        <a href="#resume" className="hover:text-white transition-colors">Resume</a>
+        <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+      </div>
 
-            <div className="h-4 w-px bg-white/10 hidden sm:block"></div>
+      <div className="h-4 w-px bg-white/10 hidden sm:block"></div>
 
-            {/* Ikon GitHub & LinkedIn (Menggunakan Native SVG) */}
-            <div className="flex items-center gap-1 sm:gap-2">
-              <a 
-                href="https://github.com/karelwidi" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
-              </a>
-              <a 
-                href="https://linkedin.com/in/elieserkarelwidiyanto" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </a>
-              <a 
-                href="https://instagram.com/karelwidi_" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-                aria-label="Instagram Profile"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Ikon GitHub, LinkedIn & Instagram (Native SVG) */}
+      <div className="flex items-center gap-0.5 sm:gap-1">
+        <a 
+          href="https://github.com/karelwidi" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
+          aria-label="GitHub Profile"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
+        </a>
+        <a 
+          href="https://linkedin.com/in/elieserkarelwidiyanto" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
+          aria-label="LinkedIn Profile"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        </a>
+        <a 
+          href="https://instagram.com/karelwidi_" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
+          aria-label="Instagram Profile"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
 
       <main className="relative z-10 pt-32 pb-20">
         
