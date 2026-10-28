@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
- Mail, 
+  Mail, 
   ExternalLink, 
   ChevronRight, 
   Maximize2,
@@ -217,6 +217,7 @@ const TiltCard = ({ children, className = "" }) => {
 export default function Portfolio() {
   const [activeTab, setActiveTab] = useState('projects');
   const [selectedCert, setSelectedCert] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const projectsData = [
     {
@@ -281,63 +282,151 @@ export default function Portfolio() {
       image: "images/Intern-tki.png", 
       verifyLink: "https://www.linkedin.com/in/elieserkarelwidiyanto/overlay/Position/2989138410/treasury/?profileId=ACoAAEPKGuoBqICN7MiDZTd_Vu4GQr7KOr4PKgM"
     }
-  ];  
+  ];   
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-300 font-sans selection:bg-zinc-800 selection:text-white overflow-hidden relative">
       <GlobalStyles />
       <NetworkCanvas />
 
-      {/* NAVBAR */}
-     <nav className="fixed top-0 left-0 right-0 z-40 bg-zinc-950/85 backdrop-blur-md border-b border-white/5">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-    <div className="font-mono text-zinc-100 font-bold tracking-tighter text-base sm:text-lg whitespace-nowrap">
-      Karel<span className="text-zinc-500">.Portofolio</span>
-    </div>
+      {/* NAVBAR RESPONSIVE WITH MOBILE HAMBURGER MENU */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          
+          {/* Logo */}
+          <a href="#" className="font-mono text-zinc-100 font-bold tracking-tighter text-base sm:text-lg whitespace-nowrap">
+            Karel<span className="text-zinc-500">.Portofolio</span>
+          </a>
 
-    <div className="flex items-center gap-3 sm:gap-6">
-      <div className="flex gap-2.5 sm:gap-6 text-xs sm:text-sm font-medium whitespace-nowrap text-zinc-300">
-        <a href="#about" className="hover:text-white transition-colors">About</a>
-        <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
-        <a href="#resume" className="hover:text-white transition-colors">Resume</a>
-        <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-      </div>
+          {/* Desktop Navigation Menu (Tampil di Layar Laptop/Tablet) */}
+          <div className="hidden md:flex items-center gap-6">
+            <div className="flex gap-6 text-sm font-medium text-zinc-300">
+              <a href="#about" className="hover:text-white transition-colors">About</a>
+              <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
+              <a href="#resume" className="hover:text-white transition-colors">Resume</a>
+              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+            </div>
 
-      <div className="h-4 w-px bg-white/10 hidden sm:block"></div>
+            <div className="h-4 w-px bg-white/10"></div>
 
-      {/* Ikon GitHub, LinkedIn & Instagram (Native SVG) */}
-      <div className="flex items-center gap-0.5 sm:gap-1">
-        <a 
-          href="https://github.com/karelwidi" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-          aria-label="GitHub Profile"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
-        </a>
-        <a 
-          href="https://linkedin.com/in/elieserkarelwidiyanto" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-          aria-label="LinkedIn Profile"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        </a>
-        <a 
-          href="https://instagram.com/karelwidi_" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="p-1.5 sm:p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors flex items-center justify-center"
-          aria-label="Instagram Profile"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</nav>
+            {/* Desktop Social Icons */}
+            <div className="flex items-center gap-1">
+              <a 
+                href="https://github.com/karelwidi" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                aria-label="GitHub Profile"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
+              </a>
+              <a 
+                href="https://linkedin.com/in/elieserkarelwidiyanto" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                aria-label="LinkedIn Profile"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a 
+                href="https://instagram.com/karelwidi_" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                aria-label="Instagram Profile"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile Hamburger Button (Tampil Hanya di Layar HP) */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-zinc-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors focus:outline-none"
+            aria-label="Toggle Mobile Menu"
+          >
+            {isMobileMenuOpen ? (
+              /* Icon Silang (Close) */
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              /* Icon Hamburger */
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+            )}
+          </button>
+
+        </div>
+
+        {/* Mobile Dropdown Drawer Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-zinc-950/95 border-b border-white/10 px-6 py-6 flex flex-col gap-5 backdrop-blur-xl animate-in slide-in-from-top-2 duration-200">
+            <div className="flex flex-col gap-4 text-base font-medium text-zinc-300">
+              <a 
+                href="#about" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:text-white transition-colors py-1"
+              >
+                About
+              </a>
+              <a 
+                href="#portfolio" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:text-white transition-colors py-1"
+              >
+                Portfolio
+              </a>
+              <a 
+                href="#resume" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:text-white transition-colors py-1"
+              >
+                Resume
+              </a>
+              <a 
+                href="#contact" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="hover:text-white transition-colors py-1"
+              >
+                Contact
+              </a>
+            </div>
+
+            <div className="h-px w-full bg-white/10"></div>
+
+            {/* Mobile Social Links */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <a 
+                href="https://github.com/karelwidi" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors bg-white/5 px-3 py-2 rounded-lg"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path></svg>
+                GitHub
+              </a>
+              <a 
+                href="https://linkedin.com/in/elieserkarelwidiyanto" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors bg-white/5 px-3 py-2 rounded-lg"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                LinkedIn
+              </a>
+              <a 
+                href="https://instagram.com/karelwidi_" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors bg-white/5 px-3 py-2 rounded-lg"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
 
       <main className="relative z-10 pt-32 pb-20">
         
@@ -354,18 +443,27 @@ export default function Portfolio() {
             <p className="text-lg text-zinc-400 max-w-xl leading-relaxed font-light">
               Lulusan <span className="text-white font-medium">D3 Teknik Informatika UKSW</span>. Berpengalaman membangun aplikasi <span className="text-white font-medium">full-stack</span> dengan fokus utama pada ekosistem <span className="text-white font-medium">PHP (Laravel)</span> dan <span className="text-white font-medium">React</span>, serta didukung oleh keahlian pengembangan <span className="text-white font-medium">mobile</span> (Kotlin, Android).
             </p>
-            <div className="flex gap-4 pt-4">
-              <a href="#portfolio" className="bg-white text-zinc-950 px-6 py-2.5 rounded-lg font-medium hover:bg-zinc-200 transition-colors shadow-lg shadow-white/10">
+
+            {/* KUMPULAN TOMBOL AKSI HERO */}
+            <div className="flex flex-wrap items-center gap-3 pt-4">
+              <a 
+                href="#portfolio" 
+                className="bg-white text-zinc-950 px-5 py-3 rounded-xl font-medium hover:bg-zinc-200 transition-all flex items-center gap-2 shadow-lg shadow-white/5 text-sm sm:text-base whitespace-nowrap"
+              >
                 Lihat Pekerjaan
+                <ChevronRight className="w-4 h-4" />
               </a>
-              <a href="#contact" className="px-6 py-2.5 rounded-lg font-medium border border-white/10 hover:bg-white/5 transition-colors flex items-center gap-2">
-                <Mail className="w-4 h-4" /> Kontak
+              <a 
+                href="#contact" 
+                className="border border-white/10 hover:border-white/30 bg-zinc-900/50 hover:bg-zinc-800 text-white px-5 py-3 rounded-xl font-medium transition-all flex items-center gap-2 text-sm sm:text-base whitespace-nowrap"
+              >
+                <Mail className="w-4 h-4 text-zinc-400" /> Kontak
               </a>
               <a 
                 href="https://drive.google.com/file/d/1uJYMLOnOR6-L8RcfSe49NwGkk31sUmdZ/view?usp=drive_link" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="border border-white/10 hover:border-white/30 bg-zinc-900/50 hover:bg-zinc-800 text-white px-6 py-3.5 rounded-xl font-medium transition-all flex items-center gap-2 group"
+                className="border border-white/10 hover:border-white/30 bg-zinc-900/50 hover:bg-zinc-800 text-white px-5 py-3 rounded-xl font-medium transition-all flex items-center gap-2 group text-sm sm:text-base whitespace-nowrap"
               >
                 <FileText className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                 Lihat CV
@@ -454,7 +552,7 @@ export default function Portfolio() {
                         ))}
                       </div>
 
-                      {/* TOMBOL LINK (GITHB & DEMO) */}
+                      {/* TOMBOL LINK (GITHUB & DEMO) */}
                       <div style={{ transform: 'translateZ(45px)' }} className="flex flex-wrap gap-3 relative z-10 transition-transform duration-300 border-t border-white/10 pt-5 mt-auto">
                         {project.githubLink && (
                           <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-zinc-300 bg-white/5 hover:bg-white/10 px-4 py-2 rounded-lg flex items-center gap-2 transition-colors border border-white/5">
@@ -502,7 +600,7 @@ export default function Portfolio() {
                 ))}
               </div>
             )}
-     
+      
             {/* TECH STACK TAB */}
             {activeTab === 'techstack' && (
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 tab-animate">
@@ -532,7 +630,6 @@ export default function Portfolio() {
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
                         <div className="relative z-10 flex items-center gap-4 pl-2">
-                          {/* Wadah Ikon Asli */}
                           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-zinc-900 border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                             {tech.icon}
                           </div>
@@ -577,7 +674,6 @@ export default function Portfolio() {
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         
                         <div className="relative z-10 flex items-center gap-4 pl-2">
-                          {/* Wadah Ikon Asli */}
                           <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-zinc-900 border border-white/10 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-300 shadow-lg">
                             {tech.icon}
                           </div>
@@ -647,12 +743,10 @@ export default function Portfolio() {
           </h2>
           <div className="space-y-12 border-l border-zinc-800 ml-3 pl-8 relative">
             
-           <div className="relative group">
+            <div className="relative group">
               <div className="absolute w-3 h-3 bg-zinc-400 rounded-full -left-[38px] top-1.5 ring-4 ring-zinc-950 group-hover:bg-white transition-colors" />
               
-              {/* BUNGKUSAN LOGO & JUDUL */}
               <div className="flex items-center gap-4 mb-3 mt-1">
-                {/* Kotak Logo */}
                 <div className="w-14 h-14 bg-white/5 rounded-xl p-2.5 flex-shrink-0 border border-white/10 group-hover:border-zinc-600 transition-colors">
                   <img 
                     src="/images/logo-uksw.png" 
@@ -661,7 +755,6 @@ export default function Portfolio() {
                   />
                 </div>
                 
-                {/* Teks Judul */}
                 <div>
                   <h3 className="text-white font-semibold text-xl">Universitas Kristen Satya Wacana</h3>
                   <p className="text-zinc-400 text-sm font-mono mt-1">Fakultas Teknologi Informasi - D3 Teknik Informatika • 2023 - 2026</p>
@@ -669,16 +762,14 @@ export default function Portfolio() {
               </div>
 
               <p className="text-zinc-500 text-base leading-relaxed max-w-2xl">
-                Lulus sebagai lulusan terbaik dengan predikat <span className="text-zinc-300 font-medium">Dengan Pujian (Cum Laude)</span> meraih IPK tertinggi <span className="text-zinc-300 font-medium">3.55 </span>. Selama masa studi, dipercaya secara akademis sebagai <span className="text-zinc-300 font-medium">Asisten Dosen</span> untuk berbagai mata kuliah pemrograman, serta membuktikan kemampuan manajerial dengan mengelola tata kelola keuangan sebagai <span className="text-zinc-300 font-medium">Bendahara Himpunan Mahasiswa Prodi (HMP)</span> D3 Teknik Informatika.
+                Lulus sebagai lulusan terbaik dengan predikat <span className="text-zinc-300 font-medium">Dengan Pujian (Cum Laude)</span> meraih IPK tertinggi <span className="text-zinc-300 font-medium">3.55</span>. Selama masa studi, dipercaya secara akademis sebagai <span className="text-zinc-300 font-medium">Asisten Dosen</span> untuk berbagai mata kuliah pemrograman, serta membuktikan kemampuan manajerial dengan mengelola tata kelola keuangan sebagai <span className="text-zinc-300 font-medium">Bendahara Himpunan Mahasiswa Prodi (HMP)</span> D3 Teknik Informatika.
               </p>
             </div>
 
             <div className="relative group">
               <div className="absolute w-3 h-3 bg-zinc-400 rounded-full -left-[38px] top-1.5 ring-4 ring-zinc-950 group-hover:bg-white transition-colors" />
               
-              {/* BUNGKUSAN LOGO & JUDUL */}
               <div className="flex items-center gap-4 mb-3 mt-1">
-                {/* Kotak Logo */}
                 <div className="w-14 h-14 bg-white/5 rounded-xl p-2.5 flex-shrink-0 border border-white/10 group-hover:border-zinc-600 transition-colors">
                   <img 
                     src="/images/logo-smada.png" 
@@ -687,7 +778,6 @@ export default function Portfolio() {
                   />
                 </div>
                 
-                {/* Teks Judul */}
                 <div>
                   <h3 className="text-white font-semibold text-xl">SMA Negeri 2 Ungaran</h3>
                   <p className="text-zinc-400 text-sm font-mono mt-1">Jurusan IPA • 2020 - 2023</p>
@@ -736,9 +826,8 @@ export default function Portfolio() {
               </div>
             </div>
 
-           <div className="bg-zinc-900/30 border border-white/5 p-6 rounded-2xl flex items-start gap-5 hover:bg-zinc-900/50 transition-colors">
+            <div className="bg-zinc-900/30 border border-white/5 p-6 rounded-2xl flex items-start gap-5 hover:bg-zinc-900/50 transition-colors">
               <div className="p-4 bg-zinc-800/50 rounded-xl text-zinc-300">
-                {/* SVG Native LinkedIn pengganti import */}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                   <rect x="2" y="9" width="4" height="12"></rect>
@@ -793,7 +882,6 @@ export default function Portfolio() {
       <footer className="border-t border-white/5 bg-zinc-950 py-10 relative z-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 text-sm">
           <div className="font-mono">© {new Date().getFullYear()} Elieser Karel Widiyanto.</div>
-        
         </div>
       </footer>
 
