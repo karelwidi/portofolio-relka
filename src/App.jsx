@@ -248,6 +248,13 @@ export default function Portfolio() {
 
   const certificatesData = [
     {
+      title: "Piagam Penghargaan IPK Tertinggi Prodi",
+      issuer: "Universitas Kristen Satya Wacana",
+      date: "Oktober 2026",
+      image: "images/Piagam-IPT.jpeg", 
+      verifyLink: "https://www.uksw.edu/wisuda-uksw-periode-iv-2026-1092-lulusan/"
+    },
+    {
       title: "Database Design Award of Completion",
       issuer: "Oracle Academy",
       date: "Agustus 2026",
@@ -281,7 +288,8 @@ export default function Portfolio() {
       date: "Januari - Maret 2026",
       image: "images/Intern-tki.png", 
       verifyLink: "https://www.linkedin.com/in/elieserkarelwidiyanto/overlay/Position/2989138410/treasury/?profileId=ACoAAEPKGuoBqICN7MiDZTd_Vu4GQr7KOr4PKgM"
-    }
+    },
+    
   ];   
 
   return (
