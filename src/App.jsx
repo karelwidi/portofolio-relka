@@ -488,7 +488,7 @@ export default function Portfolio() {
                 <div className="p-3 bg-white/5 rounded-xl"><Code2 className="text-zinc-200 w-6 h-6" /></div>
                 <div>
                   <div className="text-white font-medium">Programming Languages</div>
-                  <div className="text-xs text-zinc-500 mt-1">PHP, JavaScript, Kotlin</div>
+                  <div className="text-xs text-zinc-500 mt-1">PHP, JavaScript, Kotlin, C#</div>
                 </div>
              </div>
              
@@ -626,12 +626,13 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-3">
+                 <div className="flex flex-col gap-3">
                     {[
                       { name: 'Laravel (PHP)', desc: 'Backend Architecture & API', level: 'Advanced', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" className="w-5 h-5" /> },
                       { name: 'React', desc: 'Frontend UI & SPA', level: 'Advanced', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" className="w-5 h-5 animate-[spin_10s_linear_infinite]" /> },
                       { name: 'Tailwind CSS', desc: 'Utility-first Styling', level: 'Advanced', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" className="w-5 h-5" /> },
-                      { name: 'MySQL', desc: 'Relational Database', level: 'Intermediate', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-5 h-5" /> }
+                      { name: 'MySQL', desc: 'Relational Database', level: 'Intermediate', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-5 h-5" /> },
+                      { name: 'C#', desc: 'Object-Oriented Programming', level: 'Intermediate', icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#" className="w-5 h-5" /> }
                     ].map((tech, i) => (
                       <div key={i} className="group relative flex items-center justify-between p-4 bg-zinc-950/50 border border-white/5 rounded-xl hover:bg-zinc-900 hover:border-zinc-600 hover:shadow-[0_0_20px_rgba(255,255,255,0.03)] transition-all duration-300 overflow-hidden cursor-default">
                         
@@ -738,7 +739,7 @@ export default function Portfolio() {
               <h3 className="text-white font-semibold text-xl">Asisten Dosen (Teaching Assistant)</h3>
               <p className="text-zinc-400 text-sm mb-4 font-mono mt-1">Universitas Kristen Satya Wacana (UKSW) • 2025 - 2026</p>
               <p className="text-zinc-500 text-base leading-relaxed max-w-2xl">
-                Mendampingi mahasiswa dalam sesi praktikum intensif dengan fokus pada mata kuliah <span className="text-zinc-300 font-medium">Algoritma Pemrograman</span> dan <span className="text-zinc-300 font-medium">Pemrograman Web</span>. Bertanggung jawab memberikan <span className="text-zinc-300 font-medium">code review</span>, melatih logika pemecahan masalah (problem-solving), serta memandu proses troubleshooting untuk memastikan penerapan kode yang efisien.
+                Mendampingi mahasiswa dalam sesi praktikum intensif dengan fokus pada mata kuliah <span className="text-zinc-300 font-medium">Algoritma Pemrograman</span> (menggunakan <span className="text-zinc-300 font-medium">C#</span>) dan <span className="text-zinc-300 font-medium">Pemrograman Web</span>. Bertanggung jawab memberikan <span className="text-zinc-300 font-medium">code review</span>, melatih logika pemecahan masalah (problem-solving), serta memandu proses troubleshooting untuk memastikan penerapan kode yang efisien.
               </p>
             </div>
 
